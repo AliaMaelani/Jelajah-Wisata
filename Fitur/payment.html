@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles for this template */
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-brand .icon {
+            margin-right: 5px;
+        }
+        .highlight {
+            color: #ff7f00;
+        }
+        .jumbotron {
+            background-color: #fff;
+            color: #212529;
+            text-align: center;
+            padding: 80px 0;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+        .jumbotron p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        /* Custom CSS for Payment form */
+        .payment-form {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .payment-form h4 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #ff7f00;
+            border-color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #ff7f00;
+            border-color: #ff7f00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-compass icon"></i><span class="highlight">J</span>elajah Wisata</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container for Payment Content -->
+    <div class="container mt-4">
+        <!-- Cart and Checkout details -->
+        <div id="orderDetails"></div>
+
+        <!-- Payment Method selection -->
+        <div class="form-group">
+            <label for="paymentMethod">Select Payment Method:</label>
+            <select class="form-control" id="paymentMethod" name="paymentMethod" onchange="togglePaymentForm()">
+                <option value="bankTransfer">Transfer Bank</option>
+                <option value="card">Kartu</option>
+            </select>
+        </div>
+
+        <!-- Payment forms -->
+        <div id="bankTransferForm" class="payment-form">
+            <h4><i class="fas fa-university"></i> Bank Transfer</h4>
+            <form>
+                <div class="form-group">
+                    <label for="bankAccountNumber">Bank Account Number:</label>
+                    <input type="text" class="form-control" id="bankAccountNumber" name="bankAccountNumber" required>
+                    <div class="invalid-feedback">Please enter bank account number.</div>
+                </div>
+                <div class="form-group">
+                    <label for="paymentAmount">Payment Amount:</label>
+                    <input type="number" class="form-control" id="paymentAmount" name="paymentAmount" required>
+                    <div class="invalid-feedback">Please enter payment amount.</div>
+                </div>
+            </form>
+        </div>
+        <div id="cardForm" class="payment-form" style="display: none;">
+            <h4><i class="far fa-credit-card"></i> Kartu</h4>
+            <form>
+                <div class="form-group">
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" class="form-control" id="cardNumber" name="cardNumber" required>
+                    <div class="invalid-feedback">Please enter card number.</div>
+                </div>
+                <div class="form-group">
+                    <label for="expirationDate">Expiration Date:</label>
+                    <input type="text" class="form-control" id="expirationDate" name="expirationDate" required>
+                    <div class="invalid-feedback">Please enter expiration date.</div>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" class="form-control" id="cvv" name="cvv" required>
+                    <div class="invalid-feedback">Please enter CVV.</div>
+                </div>
+                <div class="form-group">
+                    <label for="cardPaymentAmount">Payment Amount:</label>
+                    <input type="number" class="form-control" id="cardPaymentAmount" name="paymentAmount" required>
+                    <div class="invalid-feedback">Please enter payment amount.</div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Pay Now button -->
+        <button type="button" class="btn btn-primary btn-block mb-4" id="payNowBtn" onclick="completePayment()">Pay Now</button>
+
+        <!-- Payment Receipt -->
+        <div id="paymentReceipt" style="display: none;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="text-center">Transaction Details</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-sm-6">
+                                        <strong>Transaction ID:</strong>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span id="transactionID"></span>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-6">
+                                        <strong>Date and Time:</strong>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span id="dateTime"></span>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-6">
+                                        <strong>Full Name:</strong>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span id="fullName"></span>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-6">
+                                        <strong>Total Payment:</strong>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span id="totalPayment"></span>
+                                    </div>
+                                </div>
+                                <div class="receipt-footer">
+                                    <p>=============================================================</p>
+                                    <p>If there is a problem with this transaction, please contact Jelajah Wisata customer service.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 20px;"></div>
+
+<!-- Footer -->
+<footer class="footer mt-auto py-5">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Visit Us</h5>
+                <p>Jl. Wisata Indah No. 123</p>
+                <p>Kota Wisata, Bali</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok" style="color: #ff7f00;"></i></a></li>
+                </ul>                
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p><i class="fas fa-envelope"></i> Email: info@jelajahwisata.com</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +62 123 456 789</p>
+            </div>            
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <span>&copy; 2024 Jelajah Wisata</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Function to toggle payment form based on selected payment method
+        function togglePaymentForm() {
+            var paymentMethod = document.getElementById('paymentMethod').value;
+            document.getElementById('bankTransferForm').style.display = (paymentMethod === 'bankTransfer') ? 'block' : 'none';
+            document.getElementById('cardForm').style.display = (paymentMethod === 'card') ? 'block' : 'none';
+        }
+        
+        // Function to automatically select bank transfer payment method and show its form
+        function autoSelectBankTransfer() {
+            // Select bank transfer payment method
+            document.getElementById('paymentMethod').value = 'bankTransfer';
+            // Show bank transfer form
+            togglePaymentForm();
+        }
+        
+        // Call autoSelectBankTransfer function when the page loads
+        window.onload = autoSelectBankTransfer;
+        
+        // Retrieve cart items from sessionStorage
+        var cartItems = JSON.parse(sessionStorage.getItem('cart'));
+        
+        // Retrieve checkout details from sessionStorage
+        var checkoutDetails = JSON.parse(sessionStorage.getItem('checkoutDetails'));
+        
+        // Check if cart items and checkout details are available
+        if (cartItems && cartItems.length > 0 && checkoutDetails) {
+            // Create HTML for order details table
+            var orderDetailsHTML = '<h2>Order Details</h2>';
+            orderDetailsHTML += '<div class="table-responsive">';
+            orderDetailsHTML += '<table class="table">';
+            orderDetailsHTML += '<thead>';
+            orderDetailsHTML += '<tr>';
+            orderDetailsHTML += '<th scope="col">#</th>';
+            orderDetailsHTML += '<th scope="col">Product Name</th>';
+            orderDetailsHTML += '<th scope="col">Price</th>';
+            orderDetailsHTML += '<th scope="col">Quantity</th>';
+            orderDetailsHTML += '<th scope="col">Subtotal</th>';
+            orderDetailsHTML += '</tr>';
+            orderDetailsHTML += '</thead>';
+            orderDetailsHTML += '<tbody>';
+            var totalPrice = 0;
+            cartItems.forEach(function(item, index) {
+                var subtotal = item.price * item.quantity;
+                totalPrice += subtotal;
+                orderDetailsHTML += '<tr>';
+                orderDetailsHTML += '<th scope="row">' + (index + 1) + '</th>';
+                orderDetailsHTML += '<td>' + item.name + '</td>';
+                orderDetailsHTML += '<td>' + item.price.toLocaleString("id-ID") + '</td>';
+                orderDetailsHTML += '<td>' + item.quantity + '</td>';
+                orderDetailsHTML += '<td>' + subtotal.toLocaleString("id-ID") + '</td>';
+                orderDetailsHTML += '</tr>';
+            });
+
+            // Add total price above checkout details
+            orderDetailsHTML += '<tr><td colspan="5"><strong>Total Price:</strong> ' + totalPrice.toLocaleString("id-ID") + '</td></tr>';
+
+            // Add checkout details to the table
+            orderDetailsHTML += '<tr><td colspan="5"><strong>Full Name:</strong> ' + checkoutDetails.fullName + '</td></tr>';
+            orderDetailsHTML += '<tr><td colspan="5"><strong>Email:</strong> ' + checkoutDetails.email + '</td></tr>';
+            orderDetailsHTML += '<tr><td colspan="5"><strong>Phone Number:</strong> ' + checkoutDetails.phoneNumber + '</td></tr>';
+            orderDetailsHTML += '<tr><td colspan="5"><strong>Address:</strong> ' + checkoutDetails.address + '</td></tr>';
+            orderDetailsHTML += '<tr><td colspan="5"><strong>Additional Notes:</strong> ' + (checkoutDetails.additionalNotes || 'N/A') + '</td></tr>';
+
+            orderDetailsHTML += '</tbody>';
+            orderDetailsHTML += '</table>';
+            // Remove total price line from here
+            orderDetailsHTML += '</div>';
+
+            // Display order details on the page
+            document.getElementById('orderDetails').innerHTML = orderDetailsHTML;
+        } else {
+            // Display message if cart items or checkout details are not available
+            document.getElementById('orderDetails').innerHTML = '<p>No items in the cart or checkout details found.</p>';
+        }
+
+        // Function to calculate subtotal dynamically based on cart items
+        function calculateSubtotal() {
+            var cartItems = JSON.parse(sessionStorage.getItem('cart'));
+            var subtotal = 0;
+            if (cartItems && cartItems.length > 0) {
+                cartItems.forEach(function(item) {
+                    subtotal += item.price * item.quantity;
+                });
+            }
+            return subtotal;
+        }
+
+        // Function to update payment amount input field
+        function updatePaymentAmount() {
+            var subtotal = calculateSubtotal();
+            document.getElementById('paymentAmount').value = subtotal;
+            document.getElementById('cardPaymentAmount').value = subtotal;
+        }
+
+        // Call updatePaymentAmount function when the page loads
+        window.onload = updatePaymentAmount;
+
+        // Function to complete the payment process
+        function completePayment() {
+            // Check if all required fields are filled before proceeding with payment
+            var paymentMethod = document.getElementById('paymentMethod').value;
+            var isFormValid = true;
+
+            // Check if bank transfer form is visible and validate its fields
+            if (paymentMethod === 'bankTransfer') {
+                var bankAccountNumber = document.getElementById('bankAccountNumber').value.trim();
+                var paymentAmount = document.getElementById('paymentAmount').value.trim();
+
+                if (bankAccountNumber === '' || paymentAmount === '') {
+                    alert('Please fill in all required fields for bank transfer.');
+                    isFormValid = false;
+                }
+            }
+
+            // Check if card form is visible and validate its fields
+            if (paymentMethod === 'card') {
+                var cardNumber = document.getElementById('cardNumber').value.trim();
+                var expirationDate = document.getElementById('expirationDate').value.trim();
+                var cvv = document.getElementById('cvv').value.trim();
+                var cardPaymentAmount = document.getElementById('cardPaymentAmount').value.trim();
+
+                if (cardNumber === '' || expirationDate === '' || cvv === '' || cardPaymentAmount === '') {
+                    alert('Please fill in all required fields for card payment.');
+                    isFormValid = false;
+                }
+            }
+
+            // Proceed with payment if all fields are filled
+            if (isFormValid) {
+                // Hide payment method selection form
+                document.getElementById('paymentMethod').style.display = 'none';
+                // Hide payment method label
+                document.querySelector('label[for="paymentMethod"]').style.display = 'none';
+
+                // Hide other elements
+                document.getElementById('orderDetails').style.display = 'none';
+                document.getElementById('bankTransferForm').style.display = 'none';
+                document.getElementById('cardForm').style.display = 'none';
+                document.getElementById('payNowBtn').style.display = 'none';
+
+                // Get necessary data for order details
+                var cartItems = JSON.parse(sessionStorage.getItem('cart'));
+                var checkoutDetails = JSON.parse(sessionStorage.getItem('checkoutDetails'));
+
+                // Generate random transaction ID
+                var transactionID = Math.floor(Math.random() * 1000000);
+
+                // Get current date and time
+                var currentDate = new Date();
+                var dateTime = currentDate.toLocaleString();
+
+                // Calculate total payment
+                var totalPrice = 0;
+                cartItems.forEach(function(item) {
+                    totalPrice += (item.price * item.quantity);
+                });
+
+                // Display transaction details
+                document.getElementById('transactionID').textContent = transactionID;
+                document.getElementById('dateTime').textContent = dateTime;
+                document.getElementById('fullName').textContent = checkoutDetails.fullName;
+                document.getElementById('totalPayment').textContent = totalPrice.toLocaleString("id-ID");
+
+                // Display payment receipt
+                document.getElementById('paymentReceipt').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
+

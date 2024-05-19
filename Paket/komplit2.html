@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelajah Wisata</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles for this template */
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .navbar {
+            background-color: #3c3c3c;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-brand .icon {
+            margin-right: 5px;
+        }
+        .highlight {
+            color: #ff7f00;
+        }
+        .jumbotron {
+            background-image: url('back.jpg');
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 150px 0;
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+        .jumbotron p {
+            font-size: 1.5rem;
+        }
+        /* Include, Exclude, & Note CSS */
+        .content {
+            display: none;
+        }
+        .contact-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .contact-letter {
+            background-color: #ff7f00;
+            color: #fff;
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            margin: 0 5px;
+            font-family: 'Times New Roman', Times, serif; /* Menggunakan font Times New Roman */
+        }
+        .contact-space {
+            width: 10px; /* Lebar spasi */
+            height: 40px; /* Tinggi spasi (sama dengan tinggi huruf) */
+        }
+        .active {
+            display: block;
+        }
+        .box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9; /* Latar Belakang Kotak Konten */
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); /* Efek Bayangan */
+        }
+        .active-btn {
+            background-color: #ff7f00;
+            color: #fff;
+        }
+
+        /* Hover Effect pada Tombol Include, Exclude, dan Note */
+        #include-btn:hover,
+        #exclude-btn:hover,
+        #note-btn:hover {
+            background-color: #ff7f00;
+            color: #fff;
+        }
+        .gallery-img {
+            width: 250px;
+            height: 250px; /* Menetapkan tinggi gambar tetap */
+            object-fit: cover; /* Mengatur agar gambar diatur dengan baik dalam kotak */
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+        .gallery-img-container {
+            margin-bottom: 0.5rem; /* Jarak antar foto 0.5 rem */
+            margin-right: 0.2rem; /* Mengurangi jarak antar foto ke kanan menjadi 0.2 rem */
+            margin-left: 0.2rem; /* Mengurangi jarak antar foto ke kiri menjadi 0.2 rem */
+        }
+        .img-name-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        /* Tampilan Tombol "Add to Cart" */
+        button.addToCart {
+            background-color: #ff7f00;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button.addToCart:hover {
+            background-color: #e66a00;
+        }
+        .footer {
+            background-color: #3c3c3c;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3c3c3c;">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-compass icon"></i><span class="highlight">J</span>elajah Wisata</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#DetailPaket">Detail Paket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Galeri">Galeri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#Locations">Locations</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div style="width: 539px; height: 210px; overflow: hidden;">
+                        <img src="../Gambar/tegallalangrice.jpg" class="card-img-top" alt="Komplit" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title">Jelajah Wisata - Paket Hemat Bali 6 Hari 5 Malam</h1>
+                        <div class="DetailPaket">
+                            <label for="price">Harga:</label>
+                            <span id="price">5.320.000 - 7.300.000</span>
+                            <p class="card-text">Harga Per Orang</p>
+                        </div>
+                        <div class="product">
+                            <button onclick="updatePrice(2)">Minimal 2 Orang</button>
+                            <button onclick="updatePrice(4)">Minimal 4 Orang</button>
+                            <button onclick="updatePrice(6)">Minimal 6 Orang</button>
+                            <button onclick="updatePrice(30)">Minimal 30 Orang</button>
+                            <button onclick="updatePrice(40)">Minimal 40 Orang</button>
+                        </div>
+                        <div class="product" style="margin-top: 10px;">
+                            <button onclick="decrementQuantity()" style="padding: 5px 10px;">-</button>
+                            <input type="number" id="quantity" value="1" style="width: 50px; padding: 5px;">
+                            <button onclick="incrementQuantity()" style="padding: 5px 10px;">+</button>
+                            <button onclick="addToCart()" class="addToCart">Add to Cart</button>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <a id="checkoutBtn" href="../Fitur/keranjang.html" class="btn btn-success btn-block" style="background-color: #ff7f00;">
+                                <i class="fas fa-shopping-cart mr-2"></i>Keranjang
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="../Fitur/contact.html" class="btn btn-success btn-block" style="background-color: #ff7f00;">
+                                <i class="fas fa-phone mr-2"></i>Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p style="font-size: 1.0em; color: #333; line-height: 1.6;">
+                                <strong>Optimalkan liburan Anda dengan Paket Tour Bali Murah 7H6M. Dari Kuta hingga Bedugul, Tanah Lot, Uluwatu, Kintamani, Ubud hingga Besakih. Nikmati keindahan alam, budaya, dan spiritualitas pulau ini dalam perjalanan seru yang terjangkau.</strong>
+                            </p>
+                            <hr>
+                            <p style="font-size: 1.1em; color: #555;">
+                                <strong>HARI 1 : Kintamani</strong>
+                                <br>
+                                10.00 Dijemput Tim Jelajah Wisata
+                                <br>
+                                10.15 Sambutan Perwakilan Jelajah Wisata
+                                <br>
+                                12.00 Kintamani
+                                <br>
+                                12.15 Makan Siang di Grand Puncak Sari
+                                <br>
+                                14.00 Desa Penglipuran
+                                <br>
+                                16.00 Tirta Empul
+                                <br>
+                                17.30 Desa Celuk (UC Silver)
+                                <br>
+                                19.00 Makan Malam di Bale Udang
+                                <br>
+                                20.30 Kembali ke Hotel
+                            </p>
+                            <hr>
+                            <p style="font-size: 1.1em; color: #555;">
+                                <strong>HARI 2 : Uluwatu</strong>
+                                <br>
+                                07.00 Sarapan di Hotel
+                                <br>
+                                08.00 Dijemput Tim Jelajah Wisata
+                                <br>
+                                09.00 Watersport Tanjung Benoa
+                                <br>
+                                09.15 Banana Boat Ride
+                                <br>
+                                12.00 Makan Siang di New Beranda
+                                <br>
+                                13.00 Garuda Wisnu Kencana
+                                <br>
+                                15.00 Pantai Pandawa / Melasti
+                                <br>
+                                16.30 Pura Luhur Uluwatu
+                                <br>
+                                18.00 Tari Kecak Uluwatu
+                                <br>
+                                19.30 Makan Malam di Jimbaran Seafood
+                                <br>
+                                21.00 Kembali ke Hotel
+                            </p>
+                            <hr>
+                            <p style="font-size: 1.1em; color: #555;">
+                                <strong>HARI 3 : Ubud</strong>
+                                <br>
+                                07.00 Sarapan di Hotel
+                                <br>
+                                08.00 Dijemput Tim Jelajah Wisata
+                                <br>
+                                09.00 Barong & Keris Dance
+                                <br>
+                                11.00 Tegallang Rice Terrace
+                                <br>
+                                12.00 Makan Siang di Taman Dedari
+                                <br>
+                                13.00 Monkey Forest Ubud
+                                <br>
+                                15.00 Istana Ubud
+                                <br>
+                                16.00 Pasar Seni Ubud
+                                <br>
+                                18.00 Makan Malam di Bebek Tepi Sawah
+                                <br>
+                                19.30 Kembali ke Hotel
+                            </p>
+                            <hr>
+                            <p style="font-size: 1.1em; color: #555;">
+                                <strong>HARI 4 : Lempuyang</strong>
+                                <br>
+                                07.00 Sarapan di Hotel
+                                <br>
+                                08.00 Dijemput Tim Jelajah Wisata
+                                <br>
+                                10.30 Pura Lempuyang
+                                <br>
+                                12.00 Makan Siang di Maha Kencana
+                                <br>
+                                13.30 Tirta Gangga
+                                <br>
+                                15.00 Taman Ujung Soekasada
+                                <br>
+                                16.30 Pantai Virgin
+                                <br>
+                                18.00 Makan Malam di Warung Be Sanur
+                                <br>
+                                19.30 Kembali ke Hotel
+                            </p>
+                            <hr>
+                            <p style="font-size: 1.1em; color: #555;">
+                                <strong>HARI 5 : Jatiluwih</strong>
+                                <br>
+                                07.00 Sarapan di Hotel
+                                <br>
+                                08.00 Dijemput Tim Jelajah Wisata
+                                <br>
+                                09.00 Pura Taman Ayun
+                                <br>
+                                10.30 Pura Ulun Danu Beratan
+                                <br>
+                                12.00 Makan Siang di Gong Jatiluwih
+                                <br>
+                                14.30 Jatiluwih Rice Terrace
+                                <br>
+                                16.00 Pura Tanah Lot
+                                <br>
+                                18.00 Makan Malam di Kampong Pedas
+                                <br>
+                                19.30 Kembali ke Hotel
+                            </p>
+                            <hr>
+                            <p style="font-size: 1.1em; color: #555;">
+                                <strong>HARI 6 : Lovina</strong>
+                                <br>
+                                03.30 Penjemputan di Hotel
+                                <br>
+                                06.00 Perjalanan menggunakan Jukung
+                                <br>
+                                07.00 Melihat Atraksi Lumba-lumba
+                                <br>
+                                09.00 Air Terjun Banyumala
+                                <br>
+                                11.00 Wanagiri Hidden Hills
+                                <br>
+                                13.00 Makan Siang di Secret Garden Village
+                                <br>
+                                15.00 Krisna Oleh-oleh
+                                <br>
+                                16.30 Airport Transfer
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<!-- Include, Exclude, & Note Content -->
+<button onclick="showContent('include')" id="include-btn" class="content-btn active-btn"><i class="fas fa-check"></i> Include</button>
+<button onclick="showContent('exclude')" id="exclude-btn" class="content-btn"><i class="fas fa-times"></i> Exclude</button>
+<button onclick="showContent('note')" id="note-btn" class="content-btn"><i class="fas fa-search"></i> Note</button>
+
+<div id="include" class="content active">
+    <h2>Include:</h2>
+    <div class="box">
+        <ul>
+            <li>Transport + Supir & BBM</li>
+            <li>Hotel</li>
+            <li>Supir Merangkap Guide (<15 org)</li>
+            <li>Driver & Tour Guide (Group > 20 org)</li>
+            <li>Tiket Masuk Obyek Wisata</li>
+            <li>Parkir, Tol & Retribusi Wisata</li>
+            <li>Makan Sesuai Program</li>
+            <li>Air Mineral</li>
+        </ul>
+    </div>
+</div>
+
+<div id="exclude" class="content">
+    <h2>Exclude:</h2>
+    <div class="box">
+        <ul>
+            <li>Tiket Pesawat</li>
+            <li>Pengeluaran Pribadi</li>
+            <li>Tips Driver</li>
+            <li>Asuransi</li>
+        </ul>
+    </div>
+</div>
+
+<div id="note" class="content">
+    <h2>Note:</h2>
+    <div class="box">
+        <ul>
+            <li>Semua restoran yang dipilih menyajikan menu makanan Halal</li>
+            <li>Private Tour, tidak digabung dengan peserta lain</li>
+            <li>Program acara tidak mengikat dapat disesuaikan dengan keinginan Anda</li>
+            <li>Anak dibawah 3 tahun tidak dikenakan biaya</li>
+            <li>Anak usia 4-7 thn dikenakan 50% harga dewasa</li>
+            <li>Penambahan 1.600.000/hari untuk jasa Photo Video dan Drone professional</li>
+            <li>Harga berlaku hanya untuk Warga Negara Indonesia</li>
+            <li>Harga berlaku untuk periode Low Season</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Galeri Page Content -->
+<div class="container mt-4">
+    <div class="contact-box">
+        <div class="contact-letter">G</div>
+        <div class="contact-letter">A</div>
+        <div class="contact-letter">L</div>
+        <div class="contact-letter">E</div>
+        <div class="contact-letter">R</div>
+        <div class="contact-letter">I</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <div class="gallery-img-container">
+                <img class="gallery-img" src="../Gambar/pandawa.jpg" alt="Pandawa Beach" onclick="showImageName('Pandawa Beach')">
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="gallery-img-container">
+                <img class="gallery-img" src="../Gambar/Banyumala.jpg" alt="Banyumala Waterfall" onclick="showImageName('Banyumala Waterfall')">
+            </div>
+        </div>
+        <div class="col-md-3 mb-3"> <!-- Adjusting column width to 3 out of 12 columns -->
+            <div class="gallery-img-container">
+                <img class="gallery-img" src="../Gambar/LovinaBeach.jpg" alt="Lovina Beach" onclick="showImageName('Lovina Beach')">
+            </div>
+        </div>
+        <div class="col-md-3 mb-3"> <!-- Adjusting column width to 3 out of 12 columns -->
+            <div class="gallery-img-container">
+                <img class="gallery-img" src="../Gambar/TariKecakUluwatu.jpg" alt="Tari Kecak Uluwatu" onclick="showImageName ('Tari Kecak Uluwatu')">
+            </div>
+        </div>
+        <div class="col-md-3 mb-3"> <!-- Adjusting column width to 3 out of 12 columns -->
+            <div class="gallery-img-container">
+                <img class="gallery-img" src="../Gambar/GWKBALI.jpg" alt="Garuda Wisnu Kencana" onclick="showImageName ('Garuda Wisnu Kencana')">
+            </div>
+        </div>
+        <div class="col-md-3 mb-3"> <!-- Adjusting column width to 3 out of 12 columns -->
+            <div class="gallery-img-container">
+                <img class="gallery-img" src="../Gambar/Wanagiri.jpg" alt="Wanagiri Hidden Hills" onclick="showImageName ('Wanagiri Hidden Hills')">
+            </div>
+        </div>
+        <div class="col-md-3 mb-3"> <!-- Adjusting column width to 3 out of 12 columns -->
+            <div class="gallery-img-container">
+                <img class="gallery-img" src="../Gambar/PasarSeni.jpg" alt="Ubud Art Market" onclick="showImageName ('Ubud Art Market')">
+            </div>
+        </div>
+        <div class="col-md-3 mb-3"> <!-- Adjusting column width to 3 out of 12 columns -->
+            <div class="gallery-img-container">
+                <img class="gallery-img" src="../Gambar/VirginBeach.jpg" alt="VirginBeach" onclick="showImageName ('Virgin Beach')">
+            </div>
+        </div>
+        <!-- Add more images here -->
+    </div>    
+</div>
+
+
+    <div id="Locations" class="mt-5"></div>
+    <div class="contact-box">
+        <div class="contact-letter">L</div>
+        <div class="contact-letter">O</div>
+        <div class="contact-letter">C</div>
+        <div class="contact-letter">A</div>
+        <div class="contact-letter">T</div>
+        <div class="contact-letter">I</div>
+        <div class="contact-letter">O</div>
+        <div class="contact-letter">N</div>
+        <div class="contact-letter">S</div>
+    </div>
+    
+    <div class="box">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <i class="fas fa-map-marker-alt" style="color: #ff7f00;">
+                </i><a href="https://maps.app.goo.gl/jEw8ReDjfQZQbt546" target="_blank">Desa Celuk</a>
+            </li>
+            <li class="list-group-item">
+                <i class="fas fa-map-marker-alt" style="color: #ff7f00;"></i>
+                <a href="https://maps.app.goo.gl/1aeLCdnK9BTraR1T6" target="_blank">Tegallalang Rice Terrace</a>
+            </li>
+            <li class="list-group-item">
+                <i class="fas fa-map-marker-alt" style="color: #ff7f00;"></i>
+                <a href="https://maps.app.goo.gl/oWgjZNgEYPaRVyre8" target="_blank">Pasar Seni Ubud</a>
+            </li>
+            <li class="list-group-item">
+                <i class="fas fa-map-marker-alt" style="color: #ff7f00;"></i>
+                <a href="https://maps.app.goo.gl/F22DyRhYU9XCbit77" target="_blank">Taman Ujung Soekasada</a>
+            </li>
+            <li class="list-group-item">
+                <i class="fas fa-map-marker-alt" style="color: #ff7f00;"></i>
+                <a href="https://maps.app.goo.gl/ccJe2tqmQrXTPynx8" target="_blank">Virgin Beach</a>
+            </li>
+            <li class="list-group-item">
+                <i class="fas fa-map-marker-alt" style="color: #ff7f00;"></i>
+                <a href="https://maps.app.goo.gl/ngxcMr4SGthBmVEH9" target="_blank">Jatiluwih Rice Terraces</a>
+            </li>
+            <li class="list-group-item">
+                <i class="fas fa-map-marker-alt" style="color: #ff7f00;"></i>
+                <a href="https://maps.app.goo.gl/DWdz2d9cATjLYY1j9" target="_blank">Lovina Beach</a>
+            </li>
+            <li class="list-group-item">
+                <i class="fas fa-map-marker-alt" style="color: #ff7f00;"></i>
+                <a href="https://maps.app.goo.gl/qtTrsgJEgoRr8Lin9" target="_blank">Air Terjun Banyumala</a>
+            </li>
+            <li class="list-group-item">
+                <i class="fas fa-map-marker-alt" style="color: #ff7f00;"></i>
+                <a href="https://maps.app.goo.gl/24MNaJHP9sSoFz5Y6" target="_blank">Wanagiri Hidden Hills</a>
+            </li>
+        </ul>
+    </div>
+
+    
+    <!-- Footer -->
+    <footer class="footer mt-auto py-5">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Visit Us</h5>
+                    <p>Jl. Wisata Indah No. 123</p>
+                    <p>Kota Wisata, Bali</p>
+                </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok" style="color: #ff7f00;"></i></a></li>
+                </ul>                
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p><i class="fas fa-envelope"></i> Email: info@jelajahwisata.com</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +62 123 456 789</p>
+            </div>            
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <span>&copy; 2024 Jelajah Wisata</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        function incrementQuantity() {
+            var quantityInput = document.getElementById("quantity");
+            var currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+        }
+        function decrementQuantity() {
+             var quantityInput = document.getElementById("quantity");
+             var currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        }
+        function updatePrice(minimum) {
+            var priceElement = document.getElementById("price");
+            var price;
+
+            if (minimum >= 40) {
+                price = 5320000;
+            } else if (minimum >= 30) {
+                price = 5510000;
+            } else if (minimum >= 6) {
+                price = 5450000;
+            } else if (minimum >= 4) {
+                price = 5920000;
+            } else if (minimum >= 2) {
+                price = 7300000;
+            } 
+            priceElement.textContent = price.toLocaleString("id-ID");
+        }
+
+        function addToCart() {
+            var priceElement = document.getElementById("price");
+            var quantityElement = document.getElementById("quantity");
+            var productName = "Paket Tour Bali Komplit 7 Hari 6 Malam";
+
+            var price = parseFloat(priceElement.textContent.replace(/\D/g, ''));
+            var quantity = parseInt(quantityElement.value);
+
+            var item = {
+                name: productName,
+                price: price,
+                quantity: quantity
+            };
+
+            var cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            cart.push(item);
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+
+            alert("Item added to cart!");
+        }
+
+        function showImageName(name) {
+        var imgContainer = event.target.parentElement;
+        var imgNameDiv = document.createElement("div");
+        imgNameDiv.textContent = name;
+        imgNameDiv.classList.add("img-name-overlay");
+        imgContainer.appendChild(imgNameDiv);
+    }
+        function showContent(section) {
+            var contents = document.getElementsByClassName('content');
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+            document.getElementById(section).classList.add('active');
+
+            var buttons = document.querySelectorAll('button');
+            buttons.forEach(function(btn){
+                btn.classList.remove('active-btn');
+            });
+
+            document.getElementById(section + '-btn').classList.add('active-btn');
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelajah Wisata</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles for this template */
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: #3c3c3c; 
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-brand .highlight {
+            color: #ff7f00; /* kuning ke oren */
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+        .jumbotron p {
+            font-size: 1.5rem;
+        }
+        .footer {
+            background-color: #3c3c3c;
+            color: #fff;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-compass icon"></i><span class="highlight">J</span>elajah Wisata</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Tambahkan formulir pencarian di sini -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <form class="form-inline ml-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="button" id="searchButton">Search</button>
+            </form>
+            <ul class="navbar-nav ml-auto">
+                <!-- Item navigasi lainnya -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-globe"></i> Language
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
+                        <a class="dropdown-item" href="#" onclick="changeLanguage('en')">
+                            <span class="flag-icon flag-icon-us"></span> English
+                        </a>
+                        <a class="dropdown-item" href="#" onclick="changeLanguage('id')">
+                            <span class="flag-icon flag-icon-id"></span> Indonesia
+                        </a>
+                    </div>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mb-5">
+    <h1 class="text-center mb-5">Frequently Asked Questions</h1>
+    
+    <!-- FAQ Accordion -->
+    <div class="accordion" id="faqAccordion">
+        <!-- Pertanyaan Umum -->
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="fas fa-info-circle icon text-primary"></i> 
+                        <span class="question-text-en">What is Jelajah Wisata?</span>
+                        <span class="question-text-id d-none">Apakah Jelajah Wisata?</span>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                <div class="card-body">
+                    <span class="answer-text-en">"Jelajah Wisata" is a tour and travel service provider that organizes and provides travel packages for various tourist destinations. They offer various types of tours, including family tours, budget tours, and complete tour packages. Jelajah Wisata has an extensive network to take customers to the best tourist destinations in various places, with a commitment to provide the best service and memorable travel experiences for every customer.</span>
+                    <span class="answer-text-id d-none">"Jelajah Wisata" adalah penyedia layanan tur dan perjalanan yang mengorganisir dan menyediakan paket-paket perjalanan untuk berbagai destinasi wisata. Mereka menawarkan berbagai jenis tur, termasuk tur keluarga, tur hemat, dan paket wisata lengkap. Jelajah Wisata memiliki jaringan luas untuk membawa pelanggan ke destinasi wisata terbaik di berbagai tempat, dengan komitmen untuk memberikan pelayanan terbaik dan pengalaman perjalanan yang berkesan bagi setiap pelanggan.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mengapa memilih Jelajah Wisata? -->
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <i class="fas fa-star icon text-warning"></i> <span class="question-text-en">Why choose Jelajah Wisata?</span>
+                        <span class="question-text-id d-none">Mengapa memilih Jelajah Wisata?</span>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                <div class="card-body">
+                    <!-- Jaringan terluas -->
+                    <div class="row mb-4">
+                        <div class="col-md-2">
+                            <i class="fas fa-network-wired icon text-primary"></i>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 class="answer-text-en">Widest network</h5>
+                            <h5 class="answer-text-id d-none">Jaringan terluas</h5>
+                            <p class="answer-text-en">Jelajah Wisata offers the widest network that will take you to the best tourist destinations in Bali.</p>
+                            <p class="answer-text-id d-none">Jelajah Wisata memiliki jaringan terluas yang akan membawa Anda ke destinasi wisata terbaik di Bali.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Terpercaya -->
+                    <div class="row mb-4">
+                        <div class="col-md-2">
+                            <i class="fas fa-user-lock icon text-primary"></i>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 class="answer-text-en">Trustworthy</h5>
+                            <h5 class="answer-text-id d-none">Terpercaya</h5>
+                            <p class="answer-text-en">Your travel transactions are guaranteed safe, supported by the latest reservation and verification technology that is reliable.</p>
+                            <p class="answer-text-id d-none">Transaksi perjalanan Anda dijamin aman, didukung dengan sistem teknologi reservasi dan verifikasi terkini yang terpercaya.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Pelayanan terbaik -->
+                    <div class="row mb-4">
+                        <div class="col-md-2">
+                            <i class="fas fa-handshake icon text-primary"></i>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 class="answer-text-en">Best service</h5>
+                            <h5 class="answer-text-id d-none">Pelayanan terbaik</h5>
+                            <p class="answer-text-en">We are committed to providing the best service to each of our customers, making your vacation memorable and enjoyable.</p>
+                            <p class="answer-text-id d-none">Kami berkomitmen untuk memberikan pelayanan terbaik kepada setiap pelanggan kami, menjadikan liburan Anda berkesan dan menyenangkan.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotline 24 Jam -->
+                    <div class="row mb-4">
+                        <div class="col-md-2">
+                            <i class="fas fa-phone-alt icon text-primary"></i>
+                        </div>
+                        <div class="col-md-10">
+                            <h5 class="answer-text-en">24-hour hotline</h5>
+                            <h5 class="answer-text-id d-none">Hotline 24 Jam</h5>
+                            <p class="answer-text-en">We are available 24 hours a day, 7 days a week to assist you. Contact us anytime you need assistance during your vacation in Bali.</p>
+                            <p class="answer-text-id d-none">Kami tersedia 24 jam sehari, 7 hari seminggu untuk membantu Anda. Hubungi kami kapan pun Anda membutuhkan bantuan selama liburan di Bali.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pertanyaan tentang Pembayaran -->
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <i class="fas fa-money-bill-wave icon text-success"></i> 
+                        <span class="question-text-en">How to make payments?</span>
+                        <span class="question-text-id d-none">Bagaimana cara melakukan pembayaran?</span>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                <div class="card-body">
+                    <span class="answer-text-en">We accept payments through bank transfer, credit cards, and others.</span>
+                    <span class="answer-text-id d-none">Kami menerima pembayaran melalui transfer bank, kartu kredit, dan lain sebagainya.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pertanyaan tentang Pemesanan -->
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                    <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <i class="fas fa-question-circle icon text-info"></i> 
+                        <span class="question-text-en">How to book a tour?</span>
+                        <span class="question-text-id d-none">Bagaimana cara melakukan pemesanan tur?</span>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+                <div class="card-body">
+                    <span class="answer-text-en">You can book a tour through our website or by contacting us directly via phone or email. Our team will be happy to assist you in planning your trip.</span>
+                    <span class="answer-text-id d-none">Anda dapat melakukan pemesanan tur melalui situs web kami atau menghubungi kami langsung melalui telepon atau email. Tim kami akan dengan senang hati membantu Anda merencanakan perjalanan Anda.</span>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Pertanyaan tentang Pemesanan bagi WNA -->
+        <div class="card">
+            <div class="card-header" id="headingFive">
+                <h2 class="mb-0">
+                    <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        <i class="fas fa-globe-americas icon text-info"></i> 
+                        <span class="question-text-en">How to book a tour for foreigners?</span>
+                        <span class="question-text-id d-none">Bagaimana cara memesan tur bagi WNA?</span>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
+                <div class="card-body">
+                    <span class="answer-text-en">To book a tour for foreigners, please contact us via WhatsApp at: <br><i class="fab fa-whatsapp"></i> +62 987 654 321. <br> Our team will be happy to assist you in planning your trip.</span>
+                    <span class="answer-text-id d-none">Untuk memesan tur sebagai WNA, silakan hubungi kami melalui WhatsApp di nomor: <br><i class="fab fa-whatsapp"></i> +62 987 654 321. <br> Tim kami akan dengan senang hati membantu Anda merencanakan perjalanan Anda.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pertanyaan tentang Pembatalan -->
+        <div class="card">
+            <div class="card-header" id="headingSix">
+                <h2 class="mb-0">
+                    <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        <i class="far fa-times-circle icon text-danger"></i> 
+                        <span class="question-text-en">What is the cancellation and refund policy?</span>
+                        <span class="question-text-id d-none">Bagaimana kebijakan pembatalan dan pengembalian dana?</span>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqAccordion">
+                <div class="card-body">
+                    <span class="answer-text-en">We have different cancellation policies depending on the type of tour package you have booked. Please contact us for more information regarding the cancellation and refund policy.</span>
+                    <span class="answer-text-id d-none">Kami memiliki kebijakan pembatalan yang berbeda-beda tergantung pada jenis paket wisata yang Anda pesan. Silakan hubungi kami untuk informasi lebih lanjut mengenai kebijakan pembatalan dan pengembalian dana.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pertanyaan tentang Anak-anak -->
+        <div class="card">
+            <div class="card-header" id="headingSeven">
+                <h2 class="mb-0">
+                    <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        <i class="fas fa-child icon text-success"></i> 
+                        <span class="question-text-en">Is there a special pricing policy for children?</span>
+                        <span class="question-text-id d-none">Apakah ada kebijakan harga khusus untuk anak-anak?</span>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#faqAccordion">
+                <div class="card-body">
+                    <span class="answer-text-en">Yes, we have a pricing policy for children. Children under the age of 3 can join our tours or activities for free. Meanwhile, children aged 4-7 years old are charged 50% of the adult price.</span>
+                    <span class="answer-text-id d-none">Ya, kami memiliki kebijakan harga yang berlaku untuk anak-anak. Anak-anak di bawah usia 3 tahun dapat mengikuti tur atau kegiatan kami secara gratis. Sedangkan untuk anak-anak usia 4-7 tahun, mereka dikenakan biaya sebesar 50% dari harga dewasa.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pertanyaan tentang Request -->
+        <div class="card">
+            <div class="card-header" id="headingEight">
+                <h2 class="mb-0">
+                    <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        <i class="fas fa-map-marker-alt icon text-info"></i> 
+                        <span class="question-text-en">Can I request a tourist destination outside the list available on the website?</span>
+                        <span class="question-text-id d-none">Dapatkah saya meminta destinasi wisata di luar daftar yang tersedia di situs web?</span>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#faqAccordion">
+                <div class="card-body">
+                    <span class="answer-text-en">Yes, we would be happy to assist in fulfilling requests for tourist destinations outside the available list. Please provide the details of your request to our team, and we will endeavor to facilitate it to the best of our ability. Feel free to contact us via WhatsApp at: +62 123456789.</span>
+                    <span class="answer-text-id d-none">Ya, kami akan senang untuk membantu memenuhi permintaan destinasi wisata di luar daftar yang tersedia. Silakan berikan detail permintaan Anda kepada tim kami, dan kami akan berusaha untuk memfasilitasi sesuai dengan kemampuan kami. Jangan ragu untuk menghubungi kami melalui WhatsApp di: +62 123456789.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer mt-auto py-5">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Visit Us</h5>
+                <p>Jl. Wisata Indah No. 123</p>
+                <p>Kota Wisata, Bali</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok" style="color: #ff7f00;"></i></a></li>
+                </ul>                
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p><i class="fas fa-envelope"></i> Email: info@jelajahwisata.com</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +62 123 456 789</p>
+            </div>            
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <span>&copy; 2024 Jelajah Wisata</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function changeLanguage(language) {
+        // Hide all language-specific elements
+        var enElements = document.querySelectorAll('.question-text-en, .answer-text-en');
+        enElements.forEach(function(element) {
+            element.classList.add('d-none');
+        });
+        var idElements = document.querySelectorAll('.question-text-id, .answer-text-id');
+        idElements.forEach(function(element) {
+            element.classList.add('d-none');
+        });
+
+        // Show elements based on selected language
+        if (language === 'en') {
+            enElements.forEach(function(element) {
+                element.classList.remove('d-none');
+            });
+        } else if (language === 'id') {
+            idElements.forEach(function(element) {
+                element.classList.remove('d-none');
+            });
+        }
+    }
+
+    // JavaScript untuk menangani pencarian
+    document.getElementById('searchInput').addEventListener('input', function() {
+        var searchQuery = this.value.trim().toLowerCase();
+        var faqQuestions = document.querySelectorAll('.question');
+
+        faqQuestions.forEach(function(question) {
+            var questionText = question.textContent.trim().toLowerCase();
+            var questionCard = question.closest('.card');
+
+            if (questionText.includes(searchQuery)) {
+                questionCard.style.display = ''; // Menampilkan pertanyaan yang sesuai
+            } else {
+                questionCard.style.display = 'none'; // Menyembunyikan pertanyaan yang tidak sesuai
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Jelajah Wisata</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles for this template */
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-brand .icon {
+            margin-right: 5px;
+        }
+        .highlight {
+            color: #ff7f00;
+        }
+        .jumbotron {
+            background-image: url('back.jpg');
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 150px 0;
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+        .jumbotron p {
+            font-size: 1.5rem;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+        }
+        /* Checkout CSS */
+        .table thead tr:first-child {
+            background-color: #ccc; /* Change to desired color */
+        }
+        /* Checkout Form */
+        .checkout-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        .checkout-form h2 {
+            color: #343a40;
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .form-control {
+            border-radius: 5px;
+        }
+        .input-group-text {
+            background-color: #343a40;
+            border-color: #343a40;
+            color: #fff;
+        }
+        .input-group-text i {
+            color: #fff;
+        }
+        .btn-primary {
+            background-color: #343a40;
+            border-color: #343a40;
+        }
+        .btn-primary:hover {
+            background-color: #212529;
+            border-color: #212529;
+        }
+        /* Small quantity input */
+        .quantity-input {
+            width: 70px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-compass icon"></i><span class="highlight">J</span>elajah Wisata</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="keranjang.html">Keranjang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container for Checkout Content -->
+    <div class="container mt-4">
+        <h1>Checkout</h1>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="checkoutItems">
+                    <!-- Checkout items will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center mt-4">
+            <p>Total Harga: <span id="totalPrice">0</span></p>
+        </div>
+
+        <!-- Checkout Form -->
+        <div class="mt-4 checkout-form">
+            <h2>Checkout Form</h2>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <div class="input-group">
+                        <input type="email" class="form-control" id="email" placeholder="Email" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <div class="input-group">
+                        <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea class="form-control" id="address" rows="2" placeholder="Address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="bookingDate">Booking Date:</label>
+                    <input type="date" class="form-control" id="bookingDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="additionalNotes">Additional Notes:</label>
+                    <textarea class="form-control" id="additionalNotes" rows="3" placeholder="Additional Notes"></textarea>
+                </div>
+                <!-- Use JavaScript to save checkout details to sessionStorage -->
+                <button type="button" class="btn btn-primary btn-lg d-block mx-auto" id="placeOrderBtn" style="background-color: #ff7f00; border-color: #ff7f00;">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+<!-- Footer -->
+<footer class="footer mt-auto py-5">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Visit Us</h5>
+                <p>Jl. Wisata Indah No. 123</p>
+                <p>Kota Wisata, Bali</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok" style="color: #ff7f00;"></i></a></li>
+                </ul>                
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p><i class="fas fa-envelope"></i> Email: info@jelajahwisata.com</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: 123 456 789</p>
+            </div>            
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <span>&copy; 2024 Jelajah Wisata</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Retrieve items from sessionStorage
+        var checkoutItems = JSON.parse(sessionStorage.getItem('cart'));
+
+        // Display items for checkout
+        if (checkoutItems && checkoutItems.length > 0) {
+            var checkoutItemsHTML = '';
+            var totalPrice = 0; // Variable to store total price
+            checkoutItems.forEach(function(item, index) {
+                checkoutItemsHTML += '<tr>';
+                checkoutItemsHTML += '<th scope="row">' + (index + 1) + '</th>';
+                checkoutItemsHTML += '<td>' + item.name + '</td>'; // Display product name
+                checkoutItemsHTML += '<td>' + item.price.toLocaleString("id-ID") + '</td>';
+                // Quantity input without increment and decrement buttons
+                checkoutItemsHTML += '<td><input type="number" class="form-control quantity-input" value="' + item.quantity + '" min="1"></td>';
+                checkoutItemsHTML += '<td>' + (item.price * item.quantity).toLocaleString("id-ID") + '</td>';
+                checkoutItemsHTML += '</tr>';
+                // Add item price to total price
+                totalPrice += item.price * item.quantity;
+            });
+            document.getElementById('checkoutItems').innerHTML = checkoutItemsHTML;
+            // Display total price
+            document.getElementById('totalPrice').textContent = totalPrice.toLocaleString("id-ID");
+        } else {
+            document.getElementById('checkoutItems').innerHTML = '<tr><td colspan="5">No items in the cart</td></tr>';
+        }
+
+        // Handle quantity change
+        $(document).on('change', '.quantity-input', function() {
+            var quantity = parseInt($(this).val());
+            var price = parseInt($(this).closest('tr').find('td:nth-child(3)').text().replace(/\D/g, ''));
+            var subtotal = quantity * price;
+            $(this).closest('tr').find('td:nth-child(5)').text(subtotal.toLocaleString("id-ID"));
+
+            // Update total price
+            var totalPrice = 0;
+            $('.quantity-input').each(function() {
+                var q = parseInt($(this).val());
+                var p = parseInt($(this).closest('tr').find('td:nth-child(3)').text().replace(/\D/g, ''));
+                totalPrice += q * p;
+            });
+            $('#totalPrice').text(totalPrice.toLocaleString("id-ID"));
+        });
+
+        // Function to validate checkout form
+        function validateForm() {
+            // Retrieve form data
+            var fullName = document.getElementById('fullName').value;
+            var email = document.getElementById('email').value;
+            var phoneNumber = document.getElementById('phoneNumber').value;
+            var address = document.getElementById('address').value;
+            var bookingDate = document.getElementById('bookingDate').value;
+
+            // Validate form data
+            if (fullName === "" || email === "" || phoneNumber === "" || address === "" || bookingDate === "") {
+                alert("Please fill in all fields.");
+                return false;
+            }
+
+            // If all fields are filled, return true
+            return true;
+        }
+
+        // Handle form submission
+        document.getElementById('placeOrderBtn').addEventListener('click', function() {
+            // Validate form before submitting
+            if (validateForm()) {
+                // Retrieve additionalNotes
+                var additionalNotes = document.getElementById('additionalNotes').value;
+
+                // Create an object to hold checkout details
+                var checkoutDetails = {
+                    fullName: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    phoneNumber: document.getElementById('phoneNumber').value,
+                    address: document.getElementById('address').value,
+                    bookingDate: document.getElementById('bookingDate').value,
+                    additionalNotes: additionalNotes
+                };
+
+                // Save checkout details to sessionStorage
+                sessionStorage.setItem('checkoutDetails', JSON.stringify(checkoutDetails));
+
+                // Redirect to payment.html
+                window.location.href = 'payment.html';
+            }
+        });
+    </script>
+</body>
+</html>
+

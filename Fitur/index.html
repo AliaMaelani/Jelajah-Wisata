@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelajah Wisata</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles for this template */
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .navbar {
+            background-color: #3c3c3c; 
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-brand .highlight {
+            color: #ff7f00; /* kuning ke oren */
+        }
+        .jumbotron {
+            background-image: url('back.jpg');
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 150px 0;
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+        .jumbotron p {
+            font-size: 1.5rem;
+        }
+        .footer {
+            background-color: #3c3c3c;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-compass icon"></i><span class="highlight">J</span>elajah Wisata</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <form class="form-inline my-2 my-lg-0 ml-auto" onsubmit="searchRedirect()">
+            <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+            <button class="btn my-2 my-sm-0" type="submit" style="color: #ffffff; border-color: #ffffff;">
+                <i class="fas fa-search"></i> 
+            </button>
+        </form>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-file"></i> Pages
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownPages">
+                        <a class="dropdown-item" href="tipsPerjalanan.html"><i class="fas fa-quote-left"></i> Tips Perjalanan</a>
+                        <a class="dropdown-item" href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+                        <a class="dropdown-item" href="testimoni.html"><i class="fas fa-quote-left"></i> Testimoni</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAkun" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i> Akun
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownAkun">
+                        <a class="dropdown-item" href="register.php"><i class="fas fa-user-plus"></i> Registrasi</a>
+                        <a class="dropdown-item" href="login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
+                        <a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Jumbotron -->
+<div class="jumbotron" style="background-image: url(../Gambar/home.jpg); background-size: cover; background-position: center; border-radius: 15px; padding: 50px;">
+    <div class="container text-center text-white">
+        <h1 class="display-4">Welcome to Jelajah Wisata!</h1>
+        <p class="lead">Find the Best and Cheapest Tour Packages in Bali.</p>
+        <a class="btn btn-warning btn-lg" href="packages.html" role="button" style="background-color: #ffffff;">View Tour Packages</a>
+    </div>
+    <div class="container text-center mt-5">
+        <p>We make your holiday easier and more fun!</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer mt-auto py-5">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Visit Us</h5>
+                <p>Jl. Wisata Indah No. 123</p>
+                <p>Kota Wisata, Bali</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok" style="color: #ff7f00;"></i></a></li>
+                </ul>                
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p><i class="fas fa-envelope"></i> Email: info@jelajahwisata.com</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +62 123 456 789</p>
+            </div>            
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <span>&copy; 2024 Jelajah Wisata</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function searchRedirect() {
+        event.preventDefault(); // Menghentikan default action dari form
+        var searchQuery = document.getElementById("searchInput").value.toLowerCase();
+        switch (searchQuery) {
+            case "packages":
+                window.location.href = "packages.html";
+                break;
+            case "about":
+                window.location.href = "about.html";
+                break;
+            case "faq":
+                window.location.href = "faq.html";
+                break;
+            case "testimoni":
+                window.location.href = "testimoni.html";
+                break;
+            case "contact":
+                window.location.href = "contact.html";
+                break;
+            case "tips perjalanan":
+                window.location.href = "tipsPerjalanan.html"; 
+                break;
+            case "registrasi": 
+                window.location.href = "register.php"; 
+                break;
+            case "login": 
+                window.location.href = "login.php"; 
+                break;
+            case "logout": 
+                window.location.href = "logout.php"; 
+                break;
+            default:
+                alert("Maaf, tidak ada hasil pencarian untuk: " + searchQuery);
+        }
+    }
+</script>
+
+</body>
+</html>

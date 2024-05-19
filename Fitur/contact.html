@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Jelajah Wisata</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Google Fonts - Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Masukkan CSS SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles for this template */
+        body {
+            font-family: "times new roman";
+            background-color: #f8f9fa;
+            color: #343a40; /* Warna teks utama */
+        }
+    
+        .navbar {
+            background-color: #3c3c3c;
+        }
+    
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-brand .highlight {
+            color: #ff7f00; /* kuning ke oren */
+        }
+        .jumbotron {
+            background-image: url('about-bg.jpg');
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 150px 0;
+            margin-bottom: 0; /* Hilangkan margin bawah */
+        }
+    
+        .jumbotron h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Tambah efek bayangan teks */
+        }
+        .jumbotron p {
+            font-size: 1.5rem;
+        }
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+        .contact-form h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+        .form-control {
+            border-radius: 0;
+            border-color: #ced4da;
+        }
+        .form-control:focus {
+            border-color: #6c757d;
+            box-shadow: none;
+        }
+        .btn-primary {
+            background-color: #ff7f00;
+            border-color: #ff7f00;
+            border-radius: 0;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #ff7f00;
+            border-color: #ff7f00;
+        }
+        #notification {
+            display: none;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #3c3c3c; 
+            color: #fff; /* Warna teks putih */
+        }
+        .footer {
+            background-color: #3c3c3c;
+            color: #fff;
+        }
+        .swal2-popup {
+            background-color: black; /* Mengubah latar belakang menjadi hitam */
+            color: white; /* Mengubah warna teks menjadi putih */
+            border-radius: 10px; /* Mengubah sudut menjadi melengkung */
+        }
+    </style>   
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-compass icon"></i><span class="highlight">J</span>elajah Wisata</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-file"></i> Pages
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownPages">
+                            <a class="dropdown-item" href="tipsPerjalanan.html"><i class="fas fa-question-circle"></i> Tips Perjalanan</a>
+                            <a class="dropdown-item" href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+                            <a class="dropdown-item" href="testimoni.html"><i class="fas fa-quote-left"></i> Testimoni</a>
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron" style="background-image: url(../Gambar/diamondbeach.jpg); background-size: cover; background-position: center; border-radius: 15px; padding: 50px;">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you! Drop us a message below and we'll get back to you as soon as possible.</p>
+        </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <h2>Send Us a Message</h2>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" rows="5" placeholder="Your Message"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- WhatsApp Contact for WNI and WNA -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <h2>Contact Us via WhatsApp</h2>
+                        <p>For Indonesians (WNI) and Foreigners (WNA), you can contact us via WhatsApp for inquiries:</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp for WNI: +62 123 456 789</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp for WNA: +62 987 654 321</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Social Media Cards -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-8">
+                    <div class="card-deck">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fab fa-facebook-square"></i> Facebook</h5>
+                                <p class="card-text">Connect with us on Facebook to stay updated.</p>
+                                <p class="card-text">@jelajahwisata</p>
+                                <a href="#" class="btn btn-primary">Visit Facebook</a>
+                            </div>
+                        </div>
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fab fa-twitter-square"></i> Twitter</h5>
+                                <p class="card-text">Follow us on Twitter for latest news and updates.</p>
+                                <p class="card-text">@jelajah.wisata</p>
+                                <a href="#" class="btn btn-primary">Visit Twitter</a>
+                            </div>
+                        </div>
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fab fa-instagram-square"></i> Instagram</h5>
+                                <p class="card-text">See our latest photos and videos on Instagram.</p>
+                                <p class="card-text">@jelajahwisata_</p>
+                                <a href="#" class="btn btn-primary">Visit Instagram</a>
+                            </div>
+                        </div>
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fab fa-tiktok"></i> TikTok</h5>
+                                <p class="card-text">Follow us on TikTok for fun videos.</p>
+                                <p class="card-text">@wisata.jelajah</p>
+                                <a href="#" class="btn btn-primary">Visit TikTok</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notification -->
+    <div id="notification"></div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-5">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Visit Us</h5>
+                    <p>Jl. Wisata Indah No. 123</p>
+                    <p>Kota Wisata, Bali</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook" style="color: #ff7f00;"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter" style="color: #ff7f00;"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram" style="color: #ff7f00;"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok" style="color: #ff7f00;"></i></a></li>
+                    </ul>                
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p><i class="fas fa-envelope"></i> Email: info@jelajahwisata.com</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: +62 123 456 789</p>
+                </div>            
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <span>&copy; 2024 Jelajah Wisata</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Function to show notification
+        function showNotification() {
+        Swal.fire({
+        icon: 'success',
+        title: 'Pesan berhasil dikirim!',
+        showConfirmButton: false,
+        timer: 2000 // Durasi alert ditampilkan (dalam milidetik)
+        });
+        }
+
+        // Function to handle form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            // Proses pengiriman pesan disini
+
+            // Setelah pesan berhasil dikirim, tampilkan notifikasi
+            showNotification();
+
+            // Mengosongkan nilai input pada form
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+        }
+
+        // Menambahkan event listener ke form
+        document.querySelector('.contact-form form').addEventListener('submit', handleFormSubmit);
+    </script>
+</body>
+</html>

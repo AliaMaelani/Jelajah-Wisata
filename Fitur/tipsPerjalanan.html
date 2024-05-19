@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelajah Wisata</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles for this template */
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: #3c3c3c; 
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-brand .highlight {
+            color: #ff7f00; /* kuning ke oren */
+        }
+        .jumbotron {
+            background-image: url('back.jpg');
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 150px 0;
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+        .jumbotron p {
+            font-size: 1.5rem;
+        }
+        .footer {
+            background-color: #3c3c3c;
+            color: #fff;
+            padding: 20px 0;
+        }
+        /* Additional Styles */
+        .tips-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 50px;
+        }
+        .tips-container img {
+            max-width: 300px;
+            height: auto;
+        }
+        .tip {
+            flex: 1;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-compass icon"></i><span class="highlight">J</span>elajah Wisata</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Tambahkan formulir pencarian di sini -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <form class="form-inline ml-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="button" id="searchButton">Search</button>
+            </form>
+            <ul class="navbar-nav ml-auto">
+                <!-- Item navigasi lainnya -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 class="text-center mb-5">Tips Perjalanan di Bali</h1>
+    
+    <!-- Container for Image and Tips -->
+    <div class="tips-container">
+        <!-- Image -->
+        <img src="../Gambar/tips.jpg" alt="Image" class="rounded">
+
+        <!-- Tips -->
+        <div class="tip">
+            <!-- Tip 1 -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fas fa-tshirt icon text-primary"></i> Pakaian yang Cocok
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+                    <div class="card-body">
+                        Bali dikenal dengan iklim tropisnya, jadi pastikan untuk mengenakan pakaian ringan dan nyaman seperti kaos, celana pendek, atau rok maxi. Jangan lupa untuk membawa pakaian renang dan sandal jika Anda berencana untuk menikmati pantai dan aktivitas air lainnya.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tip 2 -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fas fa-cloud-sun icon text-warning"></i> Cuaca
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+                    <div class="card-body">
+                        Perhatikan cuaca sebelum Anda berangkat! Meskipun Bali cenderung hangat sepanjang tahun, musim hujan biasanya terjadi antara bulan November hingga Maret. Sempatkan untuk membawa payung atau jas hujan jika Anda berencana untuk mengunjungi tempat-tempat terbuka.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tip 3 -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="fas fa-utensils icon text-success"></i> Makanan Lokal yang Harus Dicoba
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+                    <div class="card-body">
+                        Jelajahi kelezatan Bali dengan mencicipi makanan lokal seperti nasi campur, babi guling, atau sate lilit. Jangan ragu untuk mencoba warung makan kecil di pinggir jalan untuk pengalaman kuliner yang autentik!
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tip 4 -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <i class="fas fa-hands-helping icon text-info"></i> Kebiasaan Budaya yang Harus Dihormati
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour">
+                    <div class="card-body">
+                        Bali adalah pulau dengan kekayaan budaya yang luar biasa. Saat mengunjungi pura atau kuil, pastikan untuk mengenakan pakaian sopan seperti kemeja dan celana panjang atau sarung. Juga, ingatlah untuk tidak menunjukkan kaki atau punggung kepada patung atau gambar-gambar suci.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tip 5 -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link question" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <i class="fas fa-info-circle icon text-info"></i> Saran Tambahan
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive">
+                    <div class="card-body">
+                        Selalu berhati-hati dengan sampah dan menjaga kebersihan lingkungan. Jangan lupa untuk meminta izin sebelum mengambil foto orang-orang lokal, terutama saat melibatkan upacara atau ritual. Dan yang terpenting, selalu hormati budaya dan tradisi setempat dengan sikap yang ramah dan menghormati.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer mt-auto py-5">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Visit Us</h5>
+                <p>Jl. Wisata Indah No. 123</p>
+                <p>Kota Wisata, Bali</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok" style="color: #ff7f00;"></i></a></li>
+                </ul>                
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p><i class="fas fa-envelope"></i> Email: info@jelajahwisata.com</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +62 123 456 789</p>
+            </div>            
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <span>&copy; 2024 Jelajah Wisata</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // JavaScript untuk menangani pencarian
+    document.getElementById('searchInput').addEventListener('input', function() {
+        var searchQuery = this.value.trim().toLowerCase();
+        var faqQuestions = document.querySelectorAll('.question');
+
+        faqQuestions.forEach(function(question) {
+            var questionText = question.textContent.trim().toLowerCase();
+            var questionCard = question.closest('.card');
+
+            if (questionText.includes(searchQuery)) {
+                questionCard.style.display = ''; // Menampilkan pertanyaan yang sesuai
+            } else {
+                questionCard.style.display = 'none'; // Menyembunyikan pertanyaan yang tidak sesuai
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

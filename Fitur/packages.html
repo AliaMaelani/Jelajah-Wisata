@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelajah Wisata</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .navbar {
+            background-color: #3c3c3c; 
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-brand .highlight {
+            color: #ff7f00; 
+        }
+        .card {
+            margin-bottom: 20px;
+            width: 18rem; 
+        }
+        .hemat-bg,
+        .komplit-bg,
+        .aktivitas-bg {
+            background-color: #ffe6cc; 
+            color: #0c0c0ccf; 
+            padding: 20px; 
+        }
+        #PaketKomplitContent,
+        #additionalKomplitCards,
+        #PaketAktivitasContent,
+        #additionalAktivitasCards {
+            display: none;
+        }
+        .page {
+            margin-bottom: 50px; 
+        }
+        .footer {
+            background-color: #3c3c3c;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-compass icon"></i><span class="highlight">J</span>elajah Wisata</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-file"></i> Pages
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownPages">
+                        <a class="dropdown-item" href="tipsPerjalanan.html"><i class="fas fa-question-circle"></i> Tips Perjalanan</a>
+                        <a class="dropdown-item" href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+                        <a class="dropdown-item" href="testimoni.html"><i class="fas fa-quote-left"></i> Testimoni</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Paket Hemat Page Content -->
+<div id="PaketHematContent" class="page hemat-bg">
+    <h3 class="text-center mb-4">Paket Hemat</h3>
+    <div class="row" id="hematImageContainer">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="../Gambar/hemat1.1.jpg" class="card-img-top" alt="Hemat" style="width: 286px; height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #ff7f00;">
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <strong>Rp. 620.000</strong>
+                    </h5>
+                    <p>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                    </p>                    
+                    <p class="card-text">Paket Tour Bali Hemat 2 hari 1 Malam.</p>
+                    <a href="../Paket/hemat1.html" class="btn btn-primary" style="background-color: #ff7f00;">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="../Gambar/hemat2.jpg" class="card-img-top" alt="Hemat" style="width: 286px; height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #ff7f00;">
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <strong>Rp. 2.180.000</strong>
+                    </h5>
+                    <p>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                    </p>                    
+                    <p class="card-text">Paket Tour Bali Hemat 4 hari 3 Malam.</p>
+                    <a href="../Paket/hemat2.html" class="btn btn-primary" style="background-color: #ff7f00;">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="../Gambar/hemat3.jpg" class="card-img-top" alt="Hemat" style="width: 286px; height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #ff7f00;">
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <strong>Rp. 4.130.000</strong>
+                    </h5>
+                    <p>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                    </p>                    
+                    <p class="card-text">Paket Tour Bali Hemat 7 hari 6 Malam.</p>
+                    <a href="../Paket/hemat3.html" class="btn btn-primary" style="background-color: #ff7f00;">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col text-center">
+            <button id="loadMoreHematBtn" class="btn btn-primary" style="background-color: #ff7f00;">Load More</button>
+        </div>
+    </div>
+</div>
+
+<!-- Paket Komplit Page Content -->
+<div id="PaketKomplitContent" class="page komplit-bg">
+    <h3 class="text-center mb-4">Paket Komplit</h3>
+    <div class="row" id="komplitImageContainer">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="../Gambar/GWK.jpg" class="card-img-top" alt="Komplit" style="width: 286px; height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #ff7f00;">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <strong>Rp. 1.420.000</strong>
+                    </h5>
+                    <p>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                    </p>                    
+                    <p class="card-text">Paket Tour Komplit Bali 2 hari 1 Malam.</p>
+                    <a href="../Paket/komplit1.html" class="btn btn-primary" style="background-color: #ff7f00;">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="../Gambar/alasharumbali.jpg" class="card-img-top" alt="Komplit" style="width: 286px; height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #ff7f00;">
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <strong>Rp. 5.320.000</strong>
+                    </h5>
+                    <p>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                    </p>                    
+                    <p class="card-text">Paket Tour Komplit Bali 6 hari 5 Malam.</p>
+                    <a href="../Paket/komplit2.html" class="btn btn-primary" style="background-color: #ff7f00;">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="../Gambar/Kelingkingbeach.jpg" class="card-img-top" alt="Komplit" style="width: 286px; height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #ff7f00;">
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <strong>Rp. 2.970.000</strong>
+                    </h5>
+                    <p>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                    </p>                    
+                    <p class="card-text">Paket Tour Bali & Nusa Penida 6 Hari 5 Malam.</p>
+                    <a href="../Paket/komplit3.html" class="btn btn-primary" style="background-color: #ff7f00;">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col text-center">
+            <button id="loadMoreKomplitBtn" class="btn btn-primary" style="background-color: #ff7f00;">Load More</button>
+        </div>
+    </div>
+</div>
+
+<!-- Paket Aktivitas Page Content -->
+<div id="PaketAktivitasContent" class="page aktivitas-bg">
+    <h3 class="text-center mb-4">Paket Aktivitas</h3>
+    <div class="row" id="aktivitasImageContainer">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="../Gambar/aktivitas1.jpg" class="card-img-top" alt="Aktivitas" style="width: 286px; height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #ff7f00;">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <strong>Rp. 1.420.000</strong>
+                    </h5>
+                    <p>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                    </p>                    
+                    <p class="card-text">Paket Aktivitas Bali 3 Hari 2 Malam.</p>
+                    <a href="../Paket/aktivitas1.html" class="btn btn-primary" style="background-color: #ff7f00;">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="../Gambar/Rafting.jpg" class="card-img-top" alt="Aktivitas" style="width: 286px; height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #ff7f00;">
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <strong>Rp. 6.750.000</strong>
+                    </h5>
+                    <p>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                    </p>                    
+                    <p class="card-text">Paket Aktivitas Bali 5 Hari 4 Malam.</p>
+                    <a href="../Paket/aktivitas2.html" class="btn btn-primary" style="background-color: #ff7f00;">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="../Gambar/Lembongan.jpg" class="card-img-top" alt="Aktivitas" style="width: 286px; height: 200px;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: #ff7f00;">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <strong>Rp. 7.670.000</strong>
+                    </h5>
+                    <p>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                        <span class="star" style="color: #ff7f00;">&#9733;</span>
+                    </p>                    
+                    <p class="card-text">Paket Aktivitas Bali 6 Hari 4 Malam.</p>
+                    <a href="../Paket/aktivitas3.html" class="btn btn-primary" style="background-color: #ff7f00;">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col text-center">
+            <button id="showLessBtn" class="btn btn-primary" style="background-color: #ff7f00;">Show Less</button>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer mt-auto py-5">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Visit Us</h5>
+                <p>Jl. Wisata Indah No. 123</p>
+                <p>Kota Wisata, Bali</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok" style="color: #ff7f00;"></i></a></li>
+                </ul>                
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p><i class="fas fa-envelope"></i> Email: info@jelajahwisata.com</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +62 123 456 789</p>
+            </div>            
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <span>&copy; 2024 Jelajah Wisata</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Custom Script -->
+<script>
+    $(document).ready(function() {
+        // Function to handle Load More button for Paket Hemat
+        $("#loadMoreHematBtn").click(function () {
+            $("#PaketKomplitContent").slideDown();
+            $(this).hide();
+        });
+
+        // Function to handle Load More button for Paket Keluarga
+        $("#loadMoreKomplitBtn").click(function () {
+            $("#PaketAktivitasContent").slideDown();
+            $(this).hide();
+        });
+
+        // Function to handle Show Less button
+        $("#showLessBtn").click(function () {
+            $("#PaketAktivitasContent").slideUp();
+            $("#PaketKomplitContent").slideUp();
+            $("#PaketHematContent").slideDown();
+            $("#loadMoreHematBtn").show();
+            $("#loadMoreKomplitBtn").show();
+        });
+    });
+</script>
+</body>
+</html>
+

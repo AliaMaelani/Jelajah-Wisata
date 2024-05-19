@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Jelajah Wisata</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles for this template */
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .navbar {
+            background-color: #3c3c3c; 
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-toggler-icon {
+            background-color: #fff; /* Ubah warna ikon tombol navigasi */
+        }
+        .navbar-nav .nav-link {
+            padding: 0.5rem 1rem; /* Sesuaikan padding tombol navigasi */
+        }
+        .jumbotron {
+            position: relative;
+            background-image: url('back.jpg');
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 150px 0;
+            overflow: hidden;
+        }
+        .jumbotron::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Tambahkan overlay semi-transparan */
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+        .jumbotron p {
+            font-size: 1.5rem;
+        }
+        .feature {
+            padding: 100px 0; /* Ubah padding */
+        }
+        .card {
+            height: 100%; /* Buat semua kartu sama tingginya */
+        }
+        .feature-heading {
+            font-size: 2rem;
+            color: #0a345e;
+        }
+        .feature i {
+            font-size: 3rem;
+            color: #ff7f00;
+            animation: moveUpDown 2s infinite alternate;
+        }
+        .feature h3 {
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+        .team-member {
+            text-align: center;
+            padding: 30px 0;
+        }
+        .team-member img {
+            width: 100%; /* Buat gambar tim penuh lebar */
+            height: auto; /* Biarkan rasio aspek tetap terjaga */
+            border: 5px solid #fff;
+            transition: transform 0.3s ease;
+            max-width: 300px;
+            max-height: 450px; /* Menambah properti max-height */
+        }
+        #explore-travel-bali {
+            margin-bottom: 50px; /* Menambah margin bawah pada bagian Jelajah Wisata Bali */
+        }
+
+        #team {
+            margin-top: 50px; /* Menambah margin atas pada bagian Our Team */
+        }
+
+        .team-member h4 {
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+        .team-member p {
+            color: #6c757d;
+        }
+        .social-links a {
+            display: inline-block;
+            width: 40px; /* Lebar kotak */
+            height: 40px; /* Tinggi kotak */
+            border: 1px solid #ccc; /* Garis tepi kotak */
+            border-radius: 5px; /* Sudut melengkung kotak */
+            margin-right: 10px; /* Jarak antara kotak */
+            text-align: center; /* Teks berada di tengah kotak */
+            line-height: 40px; /* Tinggi baris sesuai tinggi kotak */
+        }
+        @keyframes moveUpDown {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+        /* Additional Styles */
+        .social-icons .fab {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        .social-icons .fab:hover {
+            transform: scale(1.2);
+        }
+        .highlight {
+            color: #ff7f00;
+            font-weight: bold;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        /* Custom media query for team member section */
+        @media (max-width: 768px) {
+            .team-member {
+                margin-bottom: 30px; /* Tambah margin bawah pada versi mobile */
+            }
+        }
+        .footer {
+            background-color: #3c3c3c;
+            color: #fff;
+            padding: 30px 0; /* Sesuaikan padding */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-compass icon"></i><span class="highlight">J</span>elajah Wisata</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-file"></i> Pages
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownPages">
+                        <a class="dropdown-item" href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+                        <a class="dropdown-item" href="testimonials.html"><i class="fas fa-quote-left"></i> Testimonials</a>
+                        <!-- Add more pages here if needed -->
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Jumbotron -->
+<div class="jumbotron" style="background-image: url('../Gambar/Lembongan.jpg');">
+    <div class="container">
+        <h1>About Jelajah Wisata</h1>
+        <p>Discover the world with us</p>
+    </div>
+</div>
+
+
+<!-- Explore Travel Bali Section -->
+<section id="explore-travel-bali" style="background-color: #fff;">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Judul di tengah -->
+            <div class="col-md-12 text-center mb-4">
+                <h2>Jelajah Wisata Bali</h2>
+            </div>
+            <!-- Foto dan penjelasan di dalam satu kolom -->
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <img src="../Gambar/diamondbeach.jpg" class="img-fluid" alt="Explore Travel Bali">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <img src="../Gambar/atuhbeach.jpg" class="img-fluid" alt="Explore Travel Bali">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../Gambar/ArtUbud.jpg" class="img-fluid" alt="Explore Travel Bali">
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../Gambar/Wanagiri.jpg" class="img-fluid" alt="Explore Travel Bali">
+                    </div>
+                </div>
+            </div>
+            <!-- Penjelasan di sebelah kanan -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Hello there! Welcome to Jelajah Wisata!</h3>
+                        <p class="card-text">We're not just offering tours here; we're crafting unforgettable experiences in Bali, the enchanting island full of beauty and adventure!</p>
+                        <p class="card-text">Let's explore together! From stunning coastlines to lush countryside, from rich culture to extreme adventures, we're ready to guide you through all the possibilities in Bali.</p>
+                        <p class="card-text">So, what's your dream trip to Bali? Share with us, and together, let's plan the perfect adventure!</p>
+                        <a href="packages.html" class="btn btn-primary" style="background-color: #ff7f00; color: #ffffff;">Start Your Adventure Now!</a>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" style="background-color: #f9f9f9;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body" style="text-align: center;">
+                        <div class="icon-wrapper" style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;"><i class="far fa-clock fa-3x" style="color: #ff7f00;"></i></div> 
+                        <h3 class="card-title"><span class="moving-number" data-number="20">0</span>+</h3>
+                        <p class="card-text">Years Of Experience.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body" style="text-align: center;">
+                        <div class="icon-wrapper" style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;"><i class="far fa-smile fa-3x" style="color: #ff7f00;"></i></div> 
+                        <h3 class="card-title"><span class="moving-number" data-number="2450">0</span>+</h3>
+                        <p class="card-text">Happy Customers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body" style="text-align: center;">
+                        <div class="icon-wrapper" style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px;"><i class="fas fa-user-tie fa-3x" style="color: #ff7f00;"></i></div>
+                        <h3 class="card-title"><span class="moving-number" data-number="1250">0</span>+</h3>
+                        <p class="card-text">Professional Guides</p> <!-- Mengubah teks -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" style="background-color: #f9f9f9;">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Our Team</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="../Gambar/team-member1.jpg" class="card-img-top" alt="Alia Maelani">
+-                    <div class="card-body text-center">
+                        <h4 class="card-title">Alia Maelani</h4>
+                        <p class="card-text">CEO</p>
+                        <p class="card-text">Alia is an experienced entrepreneur with a passion for innovation and leadership.</p>
+                    </div>
+                    <div class="social-links text-center">
+                        <a href="#" class="twitter"><span class="fab fa-twitter"></span></a>
+                        <a href="#" class="linkedin"><span class="fab fa-linkedin"></span></a>
+                        <a href="#" class="facebook"><span class="fab fa-facebook"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="../Gambar/team-member2.jpg" class="card-img-top" alt="Azizah Pauziah">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Azizah Pauziah</h4>
+                        <p class="card-text">Marketing Manager</p>
+                        <p class="card-text">Azizah excels in developing creative marketing strategies and building strong customer relationships.</p>
+                    </div>
+                    <div class="social-links text-center">
+                        <a href="#" class="twitter"><span class="fab fa-twitter"></span></a>
+                        <a href="#" class="linkedin"><span class="fab fa-linkedin"></span></a>
+                        <a href="#" class="facebook"><span class="fab fa-facebook"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="../Gambar/team-member3.jpg" class="card-img-top" alt="Vernanda Ayu Prastika">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Vernanda Ayu Prastika</h4>
+                        <p class="card-text">Head Guide</p>
+                        <p class="card-text">Nanda is a seasoned adventurer with extensive knowledge of outdoor activities and safety.</p>
+                    </div>
+                    <div class="social-links text-center">
+                        <a href="#" class="twitter"><span class="fab fa-twitter"></span></a>
+                        <a href="#" class="linkedin"><span class="fab fa-linkedin"></span></a>
+                        <a href="#" class="facebook"><span class="fab fa-facebook"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer mt-auto py-5">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Visit Us</h5>
+                <p>Jl. Wisata Indah No. 123</p>
+                <p>Kota Wisata, Bali</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok" style="color: #ff7f00;"></i></a></li>
+                </ul>                
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p><i class="fas fa-envelope"></i> Email: info@jelajahwisata.com</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +62 123 456 789</p>
+            </div>            
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <span>&copy; 2024 Jelajah Wisata</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Ambil semua elemen dengan kelas .moving-number
+    const movingNumbers = document.querySelectorAll('.moving-number');
+
+    // Iterasi melalui setiap elemen .moving-number
+    movingNumbers.forEach(number => {
+        // Ambil nilai data-number dari setiap elemen
+        const targetNumber = parseInt(number.getAttribute('data-number'));
+
+        // Atur interval untuk mengubah nilai elemen secara bertahap
+        let currentNumber = 0;
+        const increment = Math.ceil(targetNumber / 100); // Mengatur kecepatan perubahan angka
+        const interval = setInterval(() => {
+            number.textContent = currentNumber;
+            currentNumber += increment;
+            if (currentNumber >= targetNumber) {
+                number.textContent = targetNumber;
+                clearInterval(interval); // Hentikan interval saat mencapai nilai target
+            }
+        }, 20); // Interval perubahan angka (ms)
+    });
+</script>
+
+</body>
+</html>

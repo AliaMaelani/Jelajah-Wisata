@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelajah Wisata</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles for this template */
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .navbar {
+            background-color: #3c3c3c; 
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .navbar-brand .highlight {
+            color: #ff7f00; /* kuning ke oren */
+        }
+        .jumbotron {
+            background-image: url('back.jpg');
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 150px 0;
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+        }
+        .jumbotron p {
+            font-size: 1.5rem;
+        }
+        .footer {
+            background-color: #3c3c3c;
+            color: #fff;
+        }
+        .testimonial {
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+        }
+        .user-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        .testimonial-content h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .rating {
+            color: #ffc107; /* kuning */
+            margin-bottom: 15px;
+        }
+        .star {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-compass icon"></i><span class="highlight">J</span>elajah Wisata</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-file"></i> Pages
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownPages">
+                        <a class="dropdown-item" href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+                        <a class="dropdown-item" href="testimoni.html"><i class="fas fa-quote-left"></i> Testimoni</a>
+                        <!-- Add more pages here if needed -->
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Testimoni Page Content -->
+<div id="Testimoni" class="page">
+    <div class="container">
+        <h3>User Rating</h3>
+        <div class="rating">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+        </div>
+        <p>4.9 average based on 254 reviews.</p>
+        <hr style="border: 3px solid #f1f1f1">
+
+        <div class="row">
+            <div class="col-md-2">
+                <p>Luar biasa (248)</p>
+            </div>
+            <div class="col-md-10">
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <p>Sangat bagus (3)</p>
+            </div>
+            <div class="col-md-10">
+                <div class="progress">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <p>Biasa (2)</p>
+            </div>
+            <div class="col-md-10">
+                <div class="progress">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <p>Buruk (1)</p>
+            </div>
+            <div class="col-md-10">
+                <div class="progress">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <p>Sangat buruk (0)</p>
+            </div>
+        </div>
+
+        <!-- Testimonial Form -->
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h4>Beri Testimoni</h4>
+                <form id="testimonialForm">
+                    <div class="form-group">
+                        <label for="username">Nama:</label>
+                        <input type="text" class="form-control" id="username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating:</label>
+                        <select class="form-control" id="rating" name="rating">
+                            <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                            <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+                            <option value="3">&#9733;&#9733;&#9733;</option>
+                            <option value="2">&#9733;&#9733;</option>
+                            <option value="1">&#9733;</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="testimonial">Testimoni:</label>
+                        <textarea class="form-control" id="testimonial" name="testimonial" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="background-color: #ff7f00; color: #ffffff;">Kirim Testimoni</button>
+                </form>
+            </div>
+        </div>
+
+        <hr style="border: 3px solid #f1f1f1">
+
+        <!-- Testimonial List -->
+        <div id="testimonialsList" class="row">
+            <!-- Testimonial Example 1 -->
+            <div class="col-md-2">
+                <img src="https://via.placeholder.com/100" alt="User" class="user-img">
+            </div>
+            <div class="col-md-10">
+                <div class="testimonial">
+                    <h4>Fiona Anindhya</h4>
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p>"Perjalanan wisata bersama Jelajah Wisata sungguh luar biasa! Pemandangan yang indah, pelayanan yang ramah, dan pengalaman yang tak terlupakan."</p>
+                </div>
+            </div>
+            <!-- Testimonial Example 2 -->
+            <div class="col-md-2">
+                <img src="https://via.placeholder.com/100" alt="User" class="user-img">
+            </div>
+            <div class="col-md-10">
+                <div class="testimonial">
+                    <h4>Rafardhan Shakeel</h4>
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p>"Saya sangat senang dengan perjalanan wisata yang disediakan oleh Jelajah Wisata. Semuanya berjalan dengan lancar dan sesuai dengan ekspektasi saya."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer mt-auto py-5">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Visit Us</h5>
+                <p>Jl. Wisata Indah No. 123</p>
+                <p>Kota Wisata, Bali</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Follow Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram" style="color: #ff7f00;"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-tiktok" style="color: #ff7f00;"></i></a></li>
+                </ul>                
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p><i class="fas fa-envelope"></i> Email: info@jelajahwisata.com</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +62 123 456 789</p>
+            </div>            
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <span>&copy; 2024 Jelajah Wisata</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Submit testimonial form
+    $('#testimonialForm').submit(function(event) {
+        event.preventDefault();
+        var formData = $(this).serializeArray();
+        var testimonialHTML = `
+            <div class="col-md-2">
+                <img src="https://via.placeholder.com/100" alt="User" class="user-img">
+            </div>
+            <div class="col-md-10">
+                <div class="testimonial">
+                    <h4>${formData[0].value}</h4>
+                    <div class="rating">
+                        ${"&#9733;".repeat(parseInt(formData[1].value))}
+                    </div>
+                    <p>"${formData[2].value}"</p>
+                </div>
+            </div>`;
+        $('#testimonialsList').append(testimonialHTML);
+        $(this)[0].reset(); // Reset form fields
+    });
+</script>
+
+</body>
+</html>
